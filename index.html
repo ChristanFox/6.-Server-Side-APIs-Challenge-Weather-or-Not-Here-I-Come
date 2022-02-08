@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/flex-content.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Weather or Not</title>
 </head>
     <body>
@@ -13,36 +14,68 @@
             <h1>Weather Dashboard</h1>
         </header>
         <main class="flex-row col-12">
-            <section class="col-3">
-                <div id="search" class="flex-column">
+            <section class="col-3 gap">
+                <div id="search" class="flex-column justify-space-between">
                     <h2>Search for a City:</h2>
-                    <input name="city" id="city" type="text"/>
-                    <button type="submit">Search</button>
+                    <input id="searchText" class="text-center" name="city" id="city" type="text" placeholder="Enter City Here"/>
+                    <button id="searchBtn" class="btn" type="submit">Search</button>
                 </div>
-                <div id="cities" class="flex-column text-center">
-                    <p>Austin</p>
-                    <p>Chicago</p>
-                    <p>New York</p>
-                    <p>Orlando</p>
-                    <p>San Francisco</p>
-                    <p>Seattle</p>
-                    <p>Denver</p>
-                    <p>Atlanta</p>
+                <div id="cities" class="text-center">
+                    <p class="secondary">Austin</p>
+                    <p class="secondary">Chicago</p>
+                    <p class="secondary">New York</p>
+                    <p class="secondary">Orlando</p>
+                    <p class="secondary">San Francisco</p>
+                    <p class="secondary">Seattle</p>
+                    <p class="secondary">Denver</p>
+                    <p class="secondary">Atlanta</p>
                 </div>
             </section>
-            <section id="dailyForecast" class="flex-column col-9">
-                <div class="flex-colum">
-                    <h2>New York (3/30/2021)</h2>
+            <section id="weather" class="flex-column col-9">
+                <div id="dailyForecast" class="flex-column current">
+                    <h2>New York (2/6/2022)</h2>
                     <p>Temp</p>
                     <p>Wind</p>
                     <p>Humidity</p>
                     <p>UV Index</p>
                 </div>
-                <div id="weeklyForecast" class="flex-row">
+                <div id="" class="">
                     <h3>5-Day Forecast:</h3>
+                </div>
+                <div id="weeklyForecast" class="flex-row justify-space-between">
+                    <div class="card col-2">
+                        <h4>2/7/2022</h4>
+                        <h5>Temp: 73 F</h5>
+                        <h5>Wind: 9.53 MPH</h5>
+                        <h5>Humidity: 66%</h5>
+                    </div>
+                    <div class="card col-2">
+                        <h4>2/8/2022</h4>
+                        <h5>Temp: 73 F</h5>
+                        <h5>Wind: 9.53 MPH</h5>
+                        <h5>Humidity: 66%</h5>
+                    </div>
+                    <div class="card col-2">
+                        <h4>2/9/2022</h4>
+                        <h5>Temp: 73 F</h5>
+                        <h5>Wind: 9.53 MPH</h5>
+                        <h5>Humidity: 66%</h5>
+                    </div>
+                    <div class="card col-2">
+                        <h4>2/10/2022</h4>
+                        <h5>Temp: 73 F</h5>
+                        <h5>Wind: 9.53 MPH</h5>
+                        <h5>Humidity: 66%</h5>
+                    </div>
+                    <div class="card col-2">
+                        <h4>2/11/2022</h4>
+                        <h5>Temp: 73 F</h5>
+                        <h5>Wind: 9.53 MPH</h5>
+                        <h5>Humidity: 66%</h5>
+                    </div>
                 </div>
             </section>
         </main>
-        <script src="/assets/js/script.js"></script>
+        <script src="./assets/js/script.js"></script>
     </body>
 </html>
