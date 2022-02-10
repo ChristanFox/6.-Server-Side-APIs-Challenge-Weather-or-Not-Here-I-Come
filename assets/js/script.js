@@ -1,5 +1,6 @@
 var searchBtnEl = document.getElementById("searchBtn");
 var cityNameEl = document.querySelector("#searchText");
+var historyListEl = document.querySelector("#searchHistory");
 
 var getWeather = function() {
     var cityName = cityNameEl.value;
@@ -41,18 +42,25 @@ var getWeather = function() {
                 })
         });
 
+                                 /********************************/
+                                /*----SEARCH HISTORY SECTION----*/
+                               /********************************/
     function saveHistory() {
         var location = {
             city: cityName
         };
+        // Adds newest city to the end of the array
         cities.push(location);
-        cities.splice(8, 1);    
+        // Once the array reaches 8, it starts over by replacing the oldest search item
+        if (cities.length > 8) {
+            cities.shift();
+        }
     
         localStorage.setItem("cities", JSON.stringify(cities));
-    
         console.log(cities);
     }
         saveHistory();
+    
 }
 
 
