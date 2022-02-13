@@ -13,7 +13,6 @@ var getWeather = function() {
         .then(function(data) {
             console.log(data);
                 console.log(data.name, data.dt);
-                document.getElementById("currentTemp").innerHTML = "Temp";
                 console.log(data.main.temp);
                 console.log(data.wind.speed);
                 console.log(data.main.humidity);
