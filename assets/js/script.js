@@ -1,11 +1,10 @@
 var searchBtnEl = document.getElementById("searchBtn");
-var cityNameEl = document.querySelector("#searchText");
-var historyListEl = document.querySelector("#searchHistory");
+var cityNameEl = document.querySelector("#searchText");var historyListEl = document.querySelector("#searchHistory");
+var cities = JSON.parse(localStorage.getItem("cities")) || [];
 
 var getWeather = function() {
     var cityName = cityNameEl.value;
     var APIKey = "fddfd31365b535165b81caa3c50f62c5"
-    var cities = JSON.parse(localStorage.getItem("cities")) || [];
     var requestURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + APIKey;
 
                                  /*********************************/
@@ -32,13 +31,14 @@ var getWeather = function() {
             post = data;
 
             // Fetch another API for the UV Index 
-            return fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&exclude=hourly,daily&appid=" + APIKey)
+            return fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&exclude=hourly,minutely&appid=" + APIKey)
                 .then(function(response) {
                     return response.json();
                 })       
                 .then(function(UVdata) {
                     var UVindex = UVdata.current.uvi;
                     document.getElementById("currentUVI").innerHTML = "UV Index - " + UVindex;
+                    console.log(UVdata);
                 })
         });
 
@@ -60,10 +60,17 @@ var getWeather = function() {
         console.log(cities);
     }
         saveHistory();
-    
+        savedHistory();
 }
 
-
+function savedHistory() {
+    for (var i = 0; i < cities.length; i++) {
+        var p = document.querySelector(".secondary");
+        p.textContent = cities[i].city;
+        historyListEl.appendChild(p);
+    }
+}
+savedHistory();
 
 searchBtnEl.addEventListener("click", getWeather);
 
